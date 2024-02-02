@@ -1,0 +1,21 @@
+ratings:
+  namespace: bookinfo-dev
+  image: asia.gcr.io/my-k8s-playground-412511/bookinfo-ratings
+  tag: uat
+  replicas: 1
+  imagePullSecrets: registry-bookinfo
+  port: 9080
+  healthCheckPath: /health
+  monogodbPasswordExistingSecret: bookinfo-uat-ratings-mongodb-secret
+ingress:
+ingress:
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    nginx.ingress.kubernetes.io/rewrite-target: /$2
+  host: bookinfo.uat.0xnutx.space
+  path: "/ratings(/|$)(.*)"
+  serviceType: ClusterIP
+extraEnv:
+  SERVICE_VERSION: v2
+  MONGO_DB_URL: mongodb://bookinfo-uat-ratings-mongodb:27017/ratings-uat
+  MONGO_DB_USERNAME: ratings-uat

@@ -7,10 +7,3 @@ auth:
 persistence:
   enabled: false
 initdbScriptsConfigMap: bookinfo-dev-ratings-mongodb-initdb
-extraEnvVars:
-  - name: IMPORT_USERNAME
-    value: ratings-dev
-  - name: IMPORT_PASSWORD
-    value: password
-  - name: IMPORT_DATABASE
-    value: ratings-dev
