@@ -1,1 +1,3 @@
 bookinfo-dev-ratings-mongodb-secret.yaml
+bookinfo-uat-ratings-mongodb-secret.yaml
+bookinfo-prd-ratings-mongodb-secret.yaml
