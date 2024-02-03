@@ -10,7 +10,7 @@ metadata:
   {{- end }} 
 
   name: {{ .Release.Name }}
-  namespace: {{ .Values.productpages.namespace  }}
+  namespace: {{ .Values.productpage.namespace  }}
 spec:
   rules:
   - host:   {{ .Values.ingress.host  }}
@@ -22,4 +22,4 @@ spec:
           service:
             name: {{ .Release.Name }}
             port:
-              number: {{ .Values.productpages.port  }}
+              number: {{ .Values.productpage.port  }}
