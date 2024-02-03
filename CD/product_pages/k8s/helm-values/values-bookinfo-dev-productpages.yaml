@@ -1,0 +1,17 @@
+productpages:
+  namespace: bookinfo-dev
+  image: asia.gcr.io/my-k8s-playground-412511/bookinfo-productpages
+  tag: dev
+  replicas: 1
+  imagePullSecrets: registry-bookinfo
+  port: 9080
+  healthCheckPath: /health
+ingress:
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    nginx.ingress.kubernetes.io/rewrite-target: /$2
+  host: bookinfo.dev.0xnutx.space
+  path: "/(/|$)(.*)"
+  serviceType: ClusterIP
+extraEnv:
+  SERVICE_VERSION: v1
